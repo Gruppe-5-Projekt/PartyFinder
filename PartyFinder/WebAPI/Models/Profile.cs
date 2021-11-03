@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAPI.Models
+namespace WebApi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,11 +17,11 @@ namespace WebAPI.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profile()
         {
-            this.Chats = new HashSet<Chat>();
-            this.Events = new HashSet<Event>();
-            this.Matches = new HashSet<Match>();
-            this.ReportUsers = new HashSet<ReportUser>();
-            this.ReportUsers1 = new HashSet<ReportUser>();
+            this.Chat = new HashSet<Chat>();
+            this.Event = new HashSet<Event>();
+            this.Match = new HashSet<Match>();
+            this.ReportUser = new HashSet<ReportUser>();
+            this.ReportUser1 = new HashSet<ReportUser>();
         }
     
         public string Email { get; set; }
@@ -33,15 +33,15 @@ namespace WebAPI.Models
     
         public virtual Business Business { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chat> Chats { get; set; }
+        public virtual ICollection<Chat> Chat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Event> Events { get; set; }
+        public virtual ICollection<Event> Event { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Match> Matches { get; set; }
+        public virtual ICollection<Match> Match { get; set; }
         public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReportUser> ReportUsers { get; set; }
+        public virtual ICollection<ReportUser> ReportUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReportUser> ReportUsers1 { get; set; }
+        public virtual ICollection<ReportUser> ReportUser1 { get; set; }
     }
 }

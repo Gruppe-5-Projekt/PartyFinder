@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAPI.Models
+namespace WebApi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,8 +17,8 @@ namespace WebAPI.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Event()
         {
-            this.Chats = new HashSet<Chat>();
-            this.Matches = new HashSet<Match>();
+            this.Chat = new HashSet<Chat>();
+            this.Match = new HashSet<Match>();
         }
     
         public string EventName { get; set; }
@@ -31,10 +31,10 @@ namespace WebAPI.Models
         public int ProfileID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chat> Chats { get; set; }
+        public virtual ICollection<Chat> Chat { get; set; }
         public virtual Profile Profile { get; set; }
         public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Match> Matches { get; set; }
+        public virtual ICollection<Match> Match { get; set; }
     }
 }

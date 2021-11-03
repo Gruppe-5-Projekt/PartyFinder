@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dcd4dfd98087450cab1105a465472806" Name="Diagram1">
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.Business" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.Chat" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.Event" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.Location" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.Match" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.Person" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.Profile" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyFinder.PartyFinderModel.ReportUser" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Business__Profil__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Chat__Destinatio__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Chat__SourceID__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Event__ProfileID__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Location__EventI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Match__EventID__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Match__ProfileID__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__Person__ProfileI__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__ReportUse__Accus__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyFinder.PartyFinderModel.FK__ReportUse__Offen__48CFD27E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
