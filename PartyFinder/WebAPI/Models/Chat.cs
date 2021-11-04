@@ -14,8 +14,6 @@ namespace WebApi.Models
     
     public partial class Chat
     {
-        public int DestinationID { get; set; }
-        public int SourceID { get; set; }
         public System.DateTime TimeSent { get; set; }
         public string Body { get; set; }
         public int ID { get; set; }

@@ -290,8 +290,6 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="DestinationID" Type="Int32" Nullable="false" />
-          <Property Name="SourceID" Type="Int32" Nullable="false" />
           <Property Name="TimeSent" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Body" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
@@ -309,7 +307,6 @@
           <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProfileID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Chat" Relationship="Self.FK__Chat__Destinatio__4BAC3F29" FromRole="Event" ToRole="Chat" />
           <NavigationProperty Name="Profile" Relationship="Self.FK__Event__ProfileID__38996AB5" FromRole="Event" ToRole="Profile" />
           <NavigationProperty Name="Location" Relationship="Self.FK__Location__EventI__3F466844" FromRole="Event" ToRole="Location" />
@@ -369,8 +366,6 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="AccuserID" Type="Int32" Nullable="false" />
-          <Property Name="OffenderID" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Profile" Relationship="Self.FK__ReportUse__Accus__47DBAE45" FromRole="ReportUser" ToRole="Profile" />
@@ -395,40 +390,16 @@
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Chat">
-              <PropertyRef Name="DestinationID" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK__Chat__SourceID__4CA06362">
           <End Role="Profile" Type="Self.Profile" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profile">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Chat">
-              <PropertyRef Name="SourceID" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK__Event__ProfileID__38996AB5">
           <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profile">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Event">
-              <PropertyRef Name="ProfileID" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK__Location__EventI__3F466844">
           <End Role="Event" Type="Self.Event" Multiplicity="1">
@@ -489,28 +460,12 @@
         <Association Name="FK__ReportUse__Accus__47DBAE45">
           <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
           <End Role="ReportUser" Type="Self.ReportUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profile">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ReportUser">
-              <PropertyRef Name="AccuserID" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="FK__ReportUse__Offen__48CFD27E">
           <End Role="Profile" Type="Self.Profile" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="ReportUser" Type="Self.ReportUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profile">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ReportUser">
-              <PropertyRef Name="OffenderID" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PartyFinderContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Business" EntityType="Self.Business" />
@@ -581,8 +536,6 @@
           <EntitySetMapping Name="Chat">
             <EntityTypeMapping TypeName="PartyFinder.PartyFinderModel.Chat">
               <MappingFragment StoreEntitySet="Chat">
-                <ScalarProperty Name="DestinationID" ColumnName="DestinationID" />
-                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
                 <ScalarProperty Name="TimeSent" ColumnName="TimeSent" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -599,7 +552,6 @@
                 <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -648,13 +600,51 @@
           <EntitySetMapping Name="ReportUser">
             <EntityTypeMapping TypeName="PartyFinder.PartyFinderModel.ReportUser">
               <MappingFragment StoreEntitySet="ReportUser">
-                <ScalarProperty Name="AccuserID" ColumnName="AccuserID" />
-                <ScalarProperty Name="OffenderID" ColumnName="OffenderID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="FK__Chat__Destinatio__4BAC3F29" TypeName="PartyFinder.PartyFinderModel.FK__Chat__Destinatio__4BAC3F29" StoreEntitySet="Chat">
+            <EndProperty Name="Event">
+              <ScalarProperty Name="ID" ColumnName="DestinationID" />
+            </EndProperty>
+            <EndProperty Name="Chat">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__Chat__SourceID__4CA06362" TypeName="PartyFinder.PartyFinderModel.FK__Chat__SourceID__4CA06362" StoreEntitySet="Chat">
+            <EndProperty Name="Profile">
+              <ScalarProperty Name="ID" ColumnName="SourceID" />
+            </EndProperty>
+            <EndProperty Name="Chat">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__Event__ProfileID__38996AB5" TypeName="PartyFinder.PartyFinderModel.FK__Event__ProfileID__38996AB5" StoreEntitySet="Event">
+            <EndProperty Name="Profile">
+              <ScalarProperty Name="ID" ColumnName="ProfileID" />
+            </EndProperty>
+            <EndProperty Name="Event">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__ReportUse__Accus__47DBAE45" TypeName="PartyFinder.PartyFinderModel.FK__ReportUse__Accus__47DBAE45" StoreEntitySet="ReportUser">
+            <EndProperty Name="Profile">
+              <ScalarProperty Name="ID" ColumnName="AccuserID" />
+            </EndProperty>
+            <EndProperty Name="ReportUser">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__ReportUse__Offen__48CFD27E" TypeName="PartyFinder.PartyFinderModel.FK__ReportUse__Offen__48CFD27E" StoreEntitySet="ReportUser">
+            <EndProperty Name="Profile">
+              <ScalarProperty Name="ID" ColumnName="OffenderID" />
+            </EndProperty>
+            <EndProperty Name="ReportUser">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -670,7 +660,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

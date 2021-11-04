@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebApi.Models;
@@ -24,9 +25,9 @@ namespace WebApi.Controllers
 
         // GET: api/Event/5
         [ResponseType(typeof(Event))]
-        public IHttpActionResult GetEvent(int id)
+        public async Task<IHttpActionResult> GetEvent(int id)
         {
-            Event @event = db.Event.Find(id);
+            Event @event = await db.Event.FindAsync(id);
             if (@event == null)
             {
                 return NotFound();
@@ -37,7 +38,7 @@ namespace WebApi.Controllers
 
         // PUT: api/Event/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutEvent(int id, Event @event)
+        public async Task<IHttpActionResult> PutEvent(int id, Event @event)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +54,7 @@ namespace WebApi.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -72,7 +73,7 @@ namespace WebApi.Controllers
 
         // POST: api/Event
         [ResponseType(typeof(Event))]
-        public IHttpActionResult PostEvent(Event @event)
+        public async Task<IHttpActionResult> PostEvent(Event @event)
         {
             if (!ModelState.IsValid)
             {
@@ -80,23 +81,23 @@ namespace WebApi.Controllers
             }
 
             db.Event.Add(@event);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = @event.ID }, @event);
         }
 
         // DELETE: api/Event/5
         [ResponseType(typeof(Event))]
-        public IHttpActionResult DeleteEvent(int id)
+        public async Task<IHttpActionResult> DeleteEvent(int id)
         {
-            Event @event = db.Event.Find(id);
+            Event @event = await db.Event.FindAsync(id);
             if (@event == null)
             {
                 return NotFound();
             }
 
             db.Event.Remove(@event);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(@event);
         }
