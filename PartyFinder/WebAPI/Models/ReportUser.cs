@@ -14,8 +14,6 @@ namespace WebApi.Models
     
     public partial class ReportUser
     {
-        public int AccuserID { get; set; }
-        public int OffenderID { get; set; }
         public string Description { get; set; }
         public int ID { get; set; }
     
