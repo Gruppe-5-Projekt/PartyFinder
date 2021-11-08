@@ -11,14 +11,21 @@ namespace WebApi.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class Location
     {
+        [DataMember]
         public string ZIP { get; set; }
+        [DataMember]
         public string City { get; set; }
+        [DataMember]
         public string Address { get; set; }
+        [DataMember]
         public int EventID { get; set; }
-    
+
+        [IgnoreDataMember]
         public virtual Event Event { get; set; }
     }
 }

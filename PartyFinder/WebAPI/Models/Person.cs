@@ -11,15 +11,23 @@ namespace WebApi.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class Person
     {
+        [DataMember]
         public string FirstName { get; set; }
+        [DataMember]
         public string LastName { get; set; }
+        [DataMember]
         public int Age { get; set; }
+        [DataMember]
         public string Gender { get; set; }
+        [DataMember]
         public int ProfileID { get; set; }
-    
+
+        [IgnoreDataMember]
         public virtual Profile Profile { get; set; }
     }
 }

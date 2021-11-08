@@ -103,7 +103,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\MatcheController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ReportUserController.cs" />
     <Compile Include="DAL\EventDBAccess.cs" />
     <Compile Include="DAL\IEventDBAccess.cs" />
     <Compile Include="Global.asax.cs">
@@ -159,6 +166,9 @@
       <DependentUpon>PartyFinderModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -11,16 +11,25 @@ namespace WebApi.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class Chat
     {
+        [DataMember]
         public int DestinationID { get; set; }
+        [DataMember]
         public int SourceID { get; set; }
+        [DataMember]
         public System.DateTime TimeSent { get; set; }
+        [DataMember]
         public string Body { get; set; }
+        [DataMember]
         public int ID { get; set; }
-    
+        
+        [IgnoreDataMember]
         public virtual Event Event { get; set; }
+        [IgnoreDataMember]
         public virtual Profile Profile { get; set; }
     }
 }
