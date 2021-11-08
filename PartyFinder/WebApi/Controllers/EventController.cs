@@ -15,12 +15,16 @@ namespace WebApi.Controllers
     public class EventController : ApiController
     {
         private PartyFinderContext db = new PartyFinderContext();
-        List<Event> events = new List<Event>();
+        
+        //For at få testen til at virke skal vi have det her:
+        //Vi skal finde en vej omkring det!
+
+        /*List<Event> events = new List<Event>();
 
         public EventController(List<Event> events)
         {
             this.events = events;
-        }
+        }*/
 
         // GET: api/Event
         public IQueryable<Event> GetEvent()
