@@ -8,10 +8,15 @@ namespace WebApi.DAL
 {
     public class EventDBAccess : IEventDBAccess
     {
-        public static List<Event> GetAllEvents()
+        public List<Event> GetAllEvents()
         {
+            using (var ctx = new PartyFinderContext())
+            {
+                var eventList = ctx.Event
+                    .Select(e => e.EventName);
 
-            throw new NotImplementedException();
+                return (List<Event>)eventList;
+            }
         }
     }
 }
