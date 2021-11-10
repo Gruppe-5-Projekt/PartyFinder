@@ -1,6 +1,5 @@
-use dmaa0920_1086219;
+use dmaa0920_1086216;
 DROP TABLE Business
-DROP TABLE Person
 DROP TABLE ReportUser
 DROP TABLE Chat
 DROP TABLE Location

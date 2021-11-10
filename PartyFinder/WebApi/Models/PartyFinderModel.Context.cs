@@ -30,8 +30,8 @@ namespace WebApi.Models
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<Location> Location { get; set; }
         public virtual DbSet<Match> Match { get; set; }
-        public virtual DbSet<Person> Person { get; set; }
         public virtual DbSet<Profile> Profile { get; set; }
         public virtual DbSet<ReportUser> ReportUser { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

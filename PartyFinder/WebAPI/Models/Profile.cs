@@ -11,10 +11,7 @@ namespace WebApi.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference = true)]
-
+    
     public partial class Profile
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,37 +23,28 @@ namespace WebApi.Models
             this.ReportUser = new HashSet<ReportUser>();
             this.ReportUser1 = new HashSet<ReportUser>();
         }
-        [DataMember]
-        public string Email { get; set; }
-        [DataMember]
-        public string PhoneNo { get; set; }
-        [DataMember]
-        public string Password { get; set; }
-        [DataMember]
-        public bool IsBanned { get; set; }
-        [DataMember]
-        public string Description { get; set; }
-        [DataMember]
+    
         public int ID { get; set; }
-        
-        [IgnoreDataMember]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNo { get; set; }
+        public string Password { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public string Description { get; set; }
+        public bool IsBanned { get; set; }
+    
         public virtual Business Business { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [IgnoreDataMember]
         public virtual ICollection<Chat> Chat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [IgnoreDataMember]
         public virtual ICollection<Event> Event { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [IgnoreDataMember]
         public virtual ICollection<Match> Match { get; set; }
-        [IgnoreDataMember]
-        public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [IgnoreDataMember]
         public virtual ICollection<ReportUser> ReportUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [IgnoreDataMember]
         public virtual ICollection<ReportUser> ReportUser1 { get; set; }
     }
 }

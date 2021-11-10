@@ -1,4 +1,4 @@
-USE [dmaa0920_1086219]
+USE [dmaa0920_1086216]
 GO
 
 /****** Object:  Table [dbo].[Event]    Script Date: 25-10-2021 15:49:44 ******/
@@ -6,11 +6,15 @@ GO
 
 CREATE TABLE [dbo].[Profile](
 	[ID] [int] NOT NULL IDENTITY,
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
 	[Email] [varchar](100) NOT NULL,
 	[PhoneNo] [varchar](50) NOT NULL,
 	[Password] [varchar](50) NOT NULL,
-	[IsBanned] [bit] NOT NULL,
+	[Age] [int] NOT NULL,
+	[Gender] [varchar](50) NOT NULL,
 	[Description] [varchar](50) NULL,
+	[IsBanned] [bit] NOT NULL,
 
 	primary key (ID),
 );
@@ -29,16 +33,6 @@ CREATE TABLE [dbo].[Event](
 	foreign key (ProfileID)		references	Profile(ID)
 );
 
-CREATE TABLE [dbo].[Person](
-	[FirstName] [varchar](50) NOT NULL,
-	[LastName] [varchar](50) NOT NULL,
-	[Age] [int] NOT NULL,
-	[Gender] [varchar](50) NOT NULL,
-	[ProfileID] [int] NOT NULL,
-
-	primary key (ProfileID),
-	foreign key (ProfileID)		references	Profile(ID) ON DELETE CASCADE,
-);
 
 CREATE TABLE [dbo].[Match](
 	[EventID] [int] NOT NULL,
@@ -47,7 +41,7 @@ CREATE TABLE [dbo].[Match](
 	
 	primary key (EventID, ProfileID),
 	foreign key (EventID)		references	Event(ID) ON DELETE CASCADE,
-	foreign key (ProfileID)		references	Person(ProfileID) ON DELETE CASCADE,
+	foreign key (ProfileID)		references	Profile(ID) ON DELETE CASCADE,
 );
 
 CREATE TABLE [dbo].[Location](
@@ -100,11 +94,6 @@ INSERT INTO Profile VALUES('asda@asdasd.sd', '47832158', '56449879765', '0', 'då
 INSERT INTO Profile VALUES('asda@asdasd.sd', '96154453', 'XxXGamerMusXxX', '0', 'dårlig live musik');
 INSERT INTO Profile VALUES('asda@asdasd.sd', '95959595', 'ikkepassword1!', '0', 'dårlig live musik');
 INSERT INTO Profile VALUES('asda@asdasd.sd', '+4546464646', 'BestemtPassword', '1', 'tequila er din ven');
-
-
-INSERT INTO Person VALUES('Klaus', 'Wolf', '25', 'male', '1');
-INSERT INTO Person VALUES('Rickard', 'Rim', '22', 'male', '3');
-INSERT INTO Person VALUES('Emma', 'Emmasen', '55', 'female', '5');
 
 INSERT INTO Business VALUES('Flamingo', '53123965', '1', '2');
 INSERT INTO Business VALUES('Old Irish', '15312313', '1', '4');

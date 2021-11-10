@@ -11,9 +11,7 @@ namespace WebApi.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
     
-    [DataContract(IsReference = true)]
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,32 +21,19 @@ namespace WebApi.Models
             this.Match = new HashSet<Match>();
         }
     
-        [DataMember]
-        public string EventName { get; set; }
-        [DataMember]
-        public int EventCapacity { get; set; }
-        [DataMember]
-        public int Amount { get; set; }
-        [DataMember]
-        public System.DateTime StartDateTime { get; set; }
-        [DataMember]
-        public System.DateTime EndDateTime { get; set; }
-        [DataMember]
-        public string Description { get; set; }
-        [DataMember]
         public int ID { get; set; }
-        [DataMember]
+        public string EventName { get; set; }
+        public int EventCapacity { get; set; }
+        public System.DateTime StartDateTime { get; set; }
+        public System.DateTime EndDateTime { get; set; }
+        public string Description { get; set; }
         public int ProfileID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [IgnoreDataMember]
         public virtual ICollection<Chat> Chat { get; set; }
-        [IgnoreDataMember]
         public virtual Profile Profile { get; set; }
-        [IgnoreDataMember]
         public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [IgnoreDataMember]
         public virtual ICollection<Match> Match { get; set; }
     }
 }

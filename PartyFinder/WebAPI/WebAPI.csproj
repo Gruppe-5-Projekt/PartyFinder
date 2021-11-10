@@ -91,8 +91,8 @@
     <Content Include="Global.asax" />
     <Content Include="Models\PartyFinderModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PartyFinderModel.Context.cs</LastGenOutput>
       <DependentUpon>PartyFinderModel.edmx</DependentUpon>
+      <LastGenOutput>PartyFinderModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\PartyFinderModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -108,8 +108,6 @@
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\MatcheController.cs" />
-    <Compile Include="Controllers\PersonController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ReportUserController.cs" />
     <Compile Include="DAL\EventDBAccess.cs" />
     <Compile Include="DAL\IEventDBAccess.cs" />
@@ -146,13 +144,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PartyFinderModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Person.cs">
-      <DependentUpon>PartyFinderModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Profile.cs">
       <DependentUpon>PartyFinderModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReportUser.cs">
+      <DependentUpon>PartyFinderModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>PartyFinderModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
